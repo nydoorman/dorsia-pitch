@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Dorsia EU Summer Social Strategy</title>
+ <style>
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+
+ @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Sohne:wght@400;500;600&display=swap');
+
+ :root {
+ --cream: #faf8f6;
+ --dark: #1a1a1a;
+ --accent: #c9a961;
+ --gray: #7a7a7a;
+ --light-gray: #e8e8e8;
+ }
+
+ html {
+ scroll-behavior: smooth;
+ }
+
+ body {
+ font-family: 'Sohne', sans-serif;
+ background: var(--cream);
+ color: var(--dark);
+ line-height: 1.65;
+ font-size: 16px;
+ overflow-x: hidden;
+ }
+
+ nav {
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ background: rgba(26, 26, 26, 0.98);
+ backdrop-filter: blur(10px);
+ padding: 0 60px;
+ height: 80px;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ z-index: 1000;
+ border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+ }
+
+ .logo {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 24px;
+ font-weight: 700;
+ color: var(--cream);
+ text-decoration: none;
+ cursor: pointer;
+ transition: color 0.3s ease;
+ }
+
+ .logo:hover { color: var(--accent); }
+
+ .nav-links {
+ display: flex;
+ gap: 50px;
+ list-style: none;
+ }
+
+ .nav-links a {
+ color: rgba(250, 248, 246, 0.6);
+ text-decoration: none;
+ font-size: 12px;
+ letter-spacing: 1.5px;
+ text-transform: uppercase;
+ font-weight: 500;
+ transition: all 0.3s ease;
+ cursor: pointer;
+ border-bottom: 2px solid transparent;
+ }
+
+ .nav-links a:hover, .nav-links a.active {
+ color: var(--accent);
+ border-bottom-color: var(--accent);
+ }
+
+ .page {
+ display: none;
+ min-height: 100vh;
+ padding: 120px 60px;
+ margin-top: 80px;
+ animation: fadeIn 0.6s ease-out;
+ }
+
+ .page.active { display: block; }
+
+ @keyframes fadeIn {
+ from { opacity: 0; transform: translateY(20px); }
+ to { opacity: 1; transform: translateY(0); }
+ }
+
+ .page-content { max-width: 1100px; margin: 0 auto; }
+
+ .hero-page {
+ min-height: 100vh;
+ padding: 0;
+ margin-top: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+ color: var(--cream);
+ text-align: center;
+ }
+
+ .hero-content {
+ max-width: 900px;
+ padding: 80px 40px;
+ animation: fadeInUp 1.2s ease-out;
+ }
+
+ @keyframes fadeInUp {
+ from { opacity: 0; transform: translateY(30px); }
+ to { opacity: 1; transform: translateY(0); }
+ }
+
+ .hero-meta {
+ font-size: 12px;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ color: var(--accent);
+ margin-bottom: 40px;
+ font-weight: 500;
+ }
+
+ h1 {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 88px;
+ font-weight: 700;
+ line-height: 1.1;
+ margin-bottom: 30px;
+ letter-spacing: -2px;
+ }
+
+ .hero-subtitle {
+ font-size: 20px;
+ color: rgba(250, 248, 246, 0.8);
+ margin-bottom: 60px;
+ line-height: 1.6;
+ }
+
+ h2 {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 60px;
+ line-height: 1.1;
+ margin-bottom: 50px;
+ color: var(--dark);
+ font-weight: 700;
+ }
+
+ h3 {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 32px;
+ margin: 50px 0 30px 0;
+ color: var(--dark);
+ font-weight: 600;
+ }
+
+ h4 {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 24px;
+ margin-bottom: 20px;
+ color: var(--dark);
+ }
+
+ p {
+ margin-bottom: 20px;
+ font-size: 16px;
+ line-height: 1.7;
+ color: var(--dark);
+ }
+
+ p.intro {
+ font-size: 18px;
+ color: var(--gray);
+ margin-bottom: 40px;
+ }
+
+ .section-number {
+ font-size: 12px;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ color: var(--accent);
+ font-weight: 600;
+ margin-bottom: 30px;
+ }
+
+ .cta-button {
+ display: inline-block;
+ padding: 16px 48px;
+ background: var(--accent);
+ color: var(--dark);
+ text-decoration: none;
+ font-weight: 600;
+ font-size: 14px;
+ letter-spacing: 1px;
+ text-transform: uppercase;
+ border-radius: 2px;
+ transition: all 0.3s ease;
+ cursor: pointer;
+ border: none;
+ box-shadow: 0 8px 24px rgba(201, 169, 97, 0.3);
+ margin-top: 40px;
+ }
+
+ .cta-button:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 12px 32px rgba(201, 169, 97, 0.4);
+ }
+
+ .gallery-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 30px;
+ margin: 60px 0;
+ }
+
+ .gallery-item {
+ position: relative;
+ aspect-ratio: 4/3;
+ overflow: hidden;
+ border-radius: 4px;
+ box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+ transition: all 0.4s ease;
+ }
+
+ .gallery-item:hover {
+ transform: translateY(-4px);
+ box-shadow: 0 20px 48px rgba(0,0,0,0.16);
+ }
+
+ .gallery-item img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ transition: transform 0.4s ease;
+ }
+
+ .gallery-item:hover img { transform: scale(1.02); }
+
+ .gallery-caption {
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+ color: white;
+ padding: 30px 20px 20px;
+ font-size: 14px;
+ opacity: 0;
+ transition: opacity 0.3s ease;
+ }
+
+ .gallery-item:hover .gallery-caption { opacity: 1; }
+
+ .three-column {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ gap: 40px;
+ margin: 60px 0;
+ }
+
+ .column {
+ padding: 40px;
+ background: white;
+ border-left: 3px solid var(--accent);
+ box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+ transition: all 0.3s ease;
+ }
+
+ .column:hover {
+ transform: translateY(-4px);
+ box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+ }
+
+ .column ul { list-style: none; }
+
+ .column li {
+ margin-bottom: 14px;
+ font-size: 14px;
+ line-height: 1.6;
+ padding-left: 16px;
+ position: relative;
+ color: var(--gray);
+ }
+
+ .column li:before {
+ content: '—';
+ position: absolute;
+ left: 0;
+ color: var(--accent);
+ font-weight: 600;
+ }
+
+ .metric-showcase {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 60px;
+ margin: 80px 0;
+ align-items: center;
+ }
+
+ .metric-cards {
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+ }
+
+ .metric-card {
+ background: white;
+ padding: 28px;
+ border-left: 3px solid var(--accent);
+ box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+ transition: all 0.3s ease;
+ border-radius: 2px;
+ }
+
+ .metric-card:hover {
+ transform: translateX(8px);
+ box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+ }
+
+ .metric-card h4 {
+ font-size: 12px;
+ text-transform: uppercase;
+ letter-spacing: 1.5px;
+ color: var(--accent);
+ margin-bottom: 10px;
+ font-weight: 600;
+ margin-top: 0;
+ }
+
+ .metric-card p {
+ font-size: 14px;
+ color: var(--gray);
+ margin-bottom: 0;
+ }
+
+ .highlight-box {
+ background: linear-gradient(135deg, rgba(201, 169, 97, 0.08), rgba(201, 169, 97, 0.04));
+ padding: 40px;
+ border-left: 3px solid var(--accent);
+ margin: 40px 0;
+ border-radius: 2px;
+ }
+
+ .timeline {
+ position: relative;
+ margin: 80px 0;
+ padding: 50px;
+ background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+ color: var(--cream);
+ border-radius: 4px;
+ box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+ }
+
+ .timeline h3 { color: var(--accent); margin-top: 0; }
+
+ .timeline-items {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 40px;
+ }
+
+ .timeline-item {
+ padding-bottom: 24px;
+ border-bottom: 1px solid rgba(201, 169, 97, 0.3);
+ }
+
+ .timeline-item:last-child { border-bottom: none; }
+
+ .timeline-label {
+ font-size: 12px;
+ text-transform: uppercase;
+ letter-spacing: 1.5px;
+ color: var(--accent);
+ font-weight: 600;
+ margin-bottom: 8px;
+ }
+
+ .timeline-content { font-size: 14px; line-height: 1.6; }
+
+ .chart-container {
+ background: white;
+ padding: 50px;
+ margin: 80px 0;
+ border-radius: 4px;
+ box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+ }
+
+ .chart-header {
+ margin-bottom: 40px;
+ padding-bottom: 20px;
+ border-bottom: 1px solid var(--light-gray);
+ }
+
+ .chart-header h4 {
+ font-size: 12px;
+ text-transform: uppercase;
+ letter-spacing: 1.5px;
+ color: var(--accent);
+ margin-bottom: 8px;
+ font-weight: 600;
+ margin-top: 0;
+ }
+
+ .chart-header p { font-size: 14px; color: var(--gray); margin-bottom: 0; }
+
+ .chart-visual {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 40px;
+ margin-bottom: 30px;
+ }
+
+ .chart-bar {
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-end;
+ align-items: center;
+ min-height: 280px;
+ }
+
+ .bar-value {
+ font-size: 28px;
+ font-weight: 700;
+ color: var(--accent);
+ margin-bottom: 12px;
+ opacity: 0;
+ animation: slideInDown 0.8s ease-out forwards;
+ }
+
+ @keyframes slideInDown {
+ from { opacity: 0; transform: translateY(-20px); }
+ to { opacity: 1; transform: translateY(0); }
+ }
+
+ .bar {
+ width: 50px;
+ background: linear-gradient(to top, var(--accent), #d4b896);
+ border-radius: 3px 3px 0 0;
+ margin-bottom: 16px;
+ box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+ height: 0;
+ transition: height 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ will-change: height;
+ }
+
+ .bar-label {
+ font-size: 12px;
+ color: var(--gray);
+ text-align: center;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ }
+
+ .stats-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr 1fr;
+ gap: 30px;
+ margin: 60px 0;
+ }
+
+ .stat-card {
+ background: white;
+ padding: 40px 30px;
+ text-align: center;
+ border-radius: 4px;
+ box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+ transition: all 0.3s ease;
+ }
+
+ .stat-card:hover {
+ transform: translateY(-4px);
+ box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+ }
+
+ .stat-number {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 48px;
+ font-weight: 700;
+ color: var(--accent);
+ margin-bottom: 10px;
+ }
+
+ .stat-label {
+ font-size: 13px;
+ color: var(--gray);
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ font-weight: 500;
+ }
+
+ .divider {
+ height: 2px;
+ background: var(--accent);
+ width: 60px;
+ margin: 60px 0;
+ }
+
+ footer {
+ background: var(--dark);
+ color: var(--cream);
+ padding: 60px;
+ text-align: center;
+ border-top: 1px solid rgba(201, 169, 97, 0.2);
+ margin-top: 120px;
+ }
+
+ footer p { color: rgba(250, 248, 246, 0.7); margin-bottom: 20px; }
+
+ @media (max-width: 768px) {
+ nav { padding: 0 40px; }
+ .nav-links { gap: 25px; }
+ .page { padding: 80px 40px; }
+ h1 { font-size: 56px; }
+ h2 { font-size: 42px; }
+ .three-column, .metric-showcase, .stats-grid { grid-template-columns: 1fr; gap: 30px; }
+ .gallery-grid { grid-template-columns: 1fr; }
+ .timeline-items { grid-template-columns: 1fr; }
+ .chart-visual { grid-template-columns: repeat(2, 1fr); }
+ }
+
+ ol { margin-left: 24px; }
+ ol li { margin-bottom: 20px; font-size: 16px; line-height: 1.7; }
+ </style>
+</head>
+<body>
+ <nav>
+ <div class="logo" onclick="goToPage('overview')">DORSIA</div>
+ <ul class="nav-links">
+ <li><a onclick="goToPage('overview')" class="nav-link active">Overview</a></li>
+ <li><a onclick="goToPage('narrative')" class="nav-link">Narrative Arc</a></li>
+ <li><a onclick="goToPage('experiment')" class="nav-link">Experiment</a></li>
+ <li><a onclick="goToPage('creators')" class="nav-link">Creators</a></li>
+ <li><a onclick="goToPage('reporting')" class="nav-link">Reporting</a></li>
+ </ul>
+ </nav>
+
+ <div id="overview" class="page hero-page active">
+ <div class="hero-content">
+ <div class="hero-meta">EU Summer Social Strategy</div>
+ <h1>Summer of Selective Presence</h1>
+ <p class="hero-subtitle">A framework for operating exclusivity as both brand signal and growth engine across five European markets, anchored by controlled access, earned moments, and intentional cultural presence.</p>
+ <button class="cta-button" onclick="goToPage('narrative')">Explore the Strategy →</button>
+ </div>
+ </div>
+
+ <div id="narrative" class="page">
+ <div class="page-content">
+ <div class="section-number">Part 1</div>
+ <h2>The Summer Narrative Arc</h2>
+ <p class="intro">The EU summer lives in three distinct movements. Each with its own social gravity. By August, membership is defined not by what Dorsia offers, but by what members have already experienced that culture at large only knows about retroactively.</p>
+ <div class="gallery-grid">
+ <div class="gallery-item">
+ <img src="https://images.unsplash.com/photo-1552566626-24694f3a19d7?w=800&q=80" alt="Exclusive Access">
+ <div class="gallery-caption">Exclusive member access to restaurant previews</div>
+ </div>
+ <div class="gallery-item">
+ <img src="https://images.unsplash.com/photo-1559339352-11d034aa65d5?w=800&q=80" alt="Festival Moments">
+ <div class="gallery-caption">Cannes Film Festival cultural moments</div>
+ </div>
+ </div>
+ <div class="three-column">
+ <div class="column">
+ <h4>May: Preview Economy</h4>
+ <p>Exclusive DM-only Stories previewing venues 48 hours before public announcement. Members learn to check Dorsia DMs first.</p>
+ <ul>
+ <li>3–5 new venues across Mediterranean</li>
+ <li>48-hour exclusivity window</li>
+ <li>15–20% DM check-in rate target</li>
+ </ul>
+ </div>
+ <div class="column">
+ <h4>June–July: Cultural Authority</h4>
+ <p>Social becomes moment-centric. Festival documentation, market density, partner integration across five cities.</p>
+ <ul>
+ <li>4–6 posts per week</li>
+ <li>8–12 new launches total</li>
+ <li>Heavy Cannes + festival focus</li>
+ </ul>
+ </div>
+ <div class="column">
+ <h4>August: Earned Status</h4>
+ <p>Content strategy shifts to aggregation. User-generated content peaks. Members document their own cultural presence.</p>
+ <ul>
+ <li>40% UGC amplification</li>
+ <li>Season-defining moments</li>
+ <li>Member spotlights</li>
+ </ul>
+ </div>
+ </div>
+ <div class="divider"></div>
+ <h3>Milan: Year-Round Thesis</h3>
+ <p>Milan is structurally different. It's a proof-of-concept for year-round exclusivity mechanics. The member base is entirely non-overlapping with Mediterranean markets. No seasonal travel coincidence.</p>
+ <p>This means Milan's social strategy operates on a different rhythm: founder and creative-led credibility building, not moment-chasing. Early launches feature chefs with established reputation in Italian food media, designers who've defined the Milan restaurant aesthetic.</p>
+ <p>By August, Milan has its own community inside the Discord, its own handful of early launches, and a foundation for year-round social that doesn't depend on seasonal moments. The insight members get: Dorsia doesn't need summer to be relevant. It's culturally grounded everywhere.</p>
+ <button class="cta-button" onclick="goToPage('experiment')">Next: The Experiment →</button>
+ </div>
+ </div>
+
+ <div id="experiment" class="page">
+ <div class="page-content">
+ <div class="section-number">Part 2</div>
+ <h2>Exclusivity as Conversion Engine</h2>
+ <p class="intro">One experiment designed to answer: Do exclusive access mechanics build brand affinity faster than public content, and does that affinity convert to bookings?</p>
+ <h3>The Hypothesis</h3>
+ <div class="highlight-box">
+ <p><strong>Members who receive exclusive 48-hour pre-public access</strong> to new partner restaurant launches will demonstrate measurably higher booking intent, stronger sentiment alignment with brand values, and more frequent engagement than members exposed only to public content.</p>
+ <p><strong>Specific targets (calibrated week 1):</strong> 1.8–2.2x higher booking rate, 35–40% higher sentiment strength, 1.3–1.5x engagement lift.</p>
+ </div>
+ <h3>What We Build & Test</h3>
+ <div class="metric-showcase">
+ <div>
+ <h3>Three Parallel Tests</h3>
+ <p>DM-only Stories access, Discord community, and public Instagram launch as control group.</p>
+ <p>This creates a measurement framework that isolates the impact of exclusivity from other variables.</p>
+ </div>
+ <div class="metric-cards">
+ <div class="metric-card">
+ <h4>DM-Only Stories</h4>
+ <p>3–5 story sequence sent 48 hours before public. Functional previews: space, details, plate, team moment, timing.</p>
+ </div>
+ <div class="metric-card">
+ <h4>Milan Discord</h4>
+ <p>Private community for 200 early members. Channels for announcements, dining discussion, cultural moments, exclusive RSVPs.</p>
+ </div>
+ <div class="metric-card">
+ <h4>Public Launch</h4>
+ <p>Standard Instagram carousel post launching 48 hours after DM access. Direct comparison cohort.</p>
+ </div>
+ </div>
+ </div>
+ <div class="timeline">
+ <h3>8-Week Experiment Window: June 1 – July 31</h3>
+ <div class="timeline-items">
+ <div class="timeline-item">
+ <div class="timeline-label">Week 1: Setup</div>
+ <div class="timeline-content">Discord launches. First cohort invited. Creative briefs finalized. Sentiment classifier training begins.</div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-label">Week 2-3: Launch Phase</div>
+ <div class="timeline-content">2–3 venue launches through full protocol. All tracking activated. Early engagement analyzed daily.</div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-label">Week 4-6: Refinement Phase</div>
+ <div class="timeline-content">2–3 more venues. Analyze Cohort 1–2 data. Adjust creative if needed. Discord community building accelerates.</div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-label">Week 7-8: Final Analysis</div>
+ <div class="timeline-content">Last 2–3 launches. Consolidate booking data. Sentiment analysis reaches critical mass. Begin findings prep.</div>
+ </div>
+ </div>
+ </div>
+ <h3>Decision Framework</h3>
+ <div class="highlight-box">
+ <h4 style="margin-top: 0;">Scenario 1: Exclusive Access Drives Both Booking Lift & Sentiment Strength</h4>
+ <p><strong>The data:</strong> Exclusive access group has 1.8x–2x higher booking rate, positive sentiment is 35–40% stronger, Discord participation sustains at 10–15% active weekly.</p>
+ <p><strong>The insight:</strong> Exclusivity is both a brand asset AND a conversion tool. Members want to feel like insiders, and that feeling translates to action.</p>
+ <p><strong>Next year:</strong> Scale this model. Every launch is tiered (members first → limited public → full public). Expand Discord to all markets. Make exclusivity the operational playbook for all social-to-booking pathways.</p>
+ </div>
+ <button class="cta-button" onclick="goToPage('creators')">Next: Creator Strategy →</button>
+ </div>
+ </div>
+
+ <div id="creators" class="page">
+ <div class="page-content">
+ <div class="section-number">Part 3</div>
+ <h2>Creator & Tastemaker Activation</h2>
+ <p class="intro">We activate people who are simultaneously (1) already dining at our partner venues, (2) culturally trusted in their markets, and (3) likely to organically share because they're genuinely excited.</p>
+ <div class="gallery-grid">
+ <div class="gallery-item">
+ <img src="https://images.unsplash.com/photo-1467521120572-f3fbf8bdbfb7?w=800&q=80" alt="Behind the Scenes">
+ <div class="gallery-caption">Behind-the-scenes creator access moments</div>
+ </div>
+ <div class="gallery-item">
+ <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=800&q=80" alt="Luxury Dining">
+ <div class="gallery-caption">Organic creator content from member dining</div>
+ </div>
+ </div>
+ <h3>Who We Activate</h3>
+ <div class="three-column">
+ <div class="column">
+ <h4>Milan</h4>
+ <p>Chefs with 2–3 restaurant groups. Design professionals. Food writers with regional authority.</p>
+ <ul>
+ <li>3–5 creators per market</li>
+ <li>Established reputation focus</li>
+ <li>Audience: 50–200K (quality over scale)</li>
+ </ul>
+ </div>
+ <div class="column">
+ <h4>Mediterranean</h4>
+ <p>Venue operators. Club promoters. People embedded in the markets all summer.</p>
+ <ul>
+ <li>2–3 per seasonal market</li>
+ <li>In-market authenticity</li>
+ <li>Direct relationship with venues</li>
+ </ul>
+ </div>
+ <div class="column">
+ <h4>We Avoid</h4>
+ <p>Travel bloggers. Macro-influencers (500K+). Anyone without demonstrated market presence.</p>
+ <ul>
+ <li>No lifestyle influencers</li>
+ <li>No paid partnerships</li>
+ <li>No "influencer" language</li>
+ </ul>
+ </div>
+ </div>
+ <div class="divider"></div>
+ <h3>Activation & Measurement</h3>
+ <p>No paid partnerships. No gifted access announcements. We treat them as early members. They get exclusive access. If they share organically, great. If not, no loss—they're part of the ecosystem.</p>
+ <div class="metric-showcase">
+ <div>
+ <h3>Success Metrics</h3>
+ <p>We measure organic seeding, audience impact, and conversation lift. A single creator driving 1–3 qualified signups and modest brand awareness over 8 weeks is a win.</p>
+ </div>
+ <div class="metric-cards">
+ <div class="metric-card">
+ <h4>Organic Seeding Rate</h4>
+ <p>35–45% of activated creators share Dorsia moments without being asked. Measured across Stories, posts, captions.</p>
+ </div>
+ <div class="metric-card">
+ <h4>Audience Impact</h4>
+ <p>Search volume for "Dorsia" after creator posts. Waitlist signups correlated with mentions.</p>
+ </div>
+ <div class="metric-card">
+ <h4>Conversation Lift</h4>
+ <p>Post-season survey: how did member-converts hear about Dorsia? Segment by creator mentions vs. other channels.</p>
+ </div>
+ </div>
+ </div>
+ <button class="cta-button" onclick="goToPage('reporting')">Final: Reporting Framework →</button>
+ </div>
+ </div>
+
+ <div id="reporting" class="page">
+ <div class="page-content">
+ <div class="section-number">Part 4</div>
+ <h2>August Recap & Reporting Framework</h2>
+ <p class="intro">August 31st. Leadership presentation. Translate four months of social activity into clear business outcomes, strategic insights, and next-year direction.</p>
+ <div class="stats-grid">
+ <div class="stat-card">
+ <div class="stat-number">8–12</div>
+ <div class="stat-label">Venue Launches</div>
+ </div>
+ <div class="stat-card">
+ <div class="stat-number">4–6</div>
+ <div class="stat-label">Posts Per Week</div>
+ </div>
+ <div class="stat-card">
+ <div class="stat-number">1.8–2.2x</div>
+ <div class="stat-label">Booking Lift Target</div>
+ </div>
+ <div class="stat-card">
+ <div class="stat-number">100–150</div>
+ <div class="stat-label">Member Surveys</div>
+ </div>
+ </div>
+ <h3>Expected Performance Metrics</h3>
+ <p>Scroll down to see the projected metrics animate in real-time</p>
+ <div class="chart-container">
+ <div class="chart-header">
+ <h4>8-Week Experiment Results Projection</h4>
+ <p>Interactive visualization showing expected engagement and conversion lift</p>
+ </div>
+ <div class="chart-visual">
+ <div class="chart-bar">
+ <div class="bar-value">2.0x</div>
+ <div class="bar" data-height="160"></div>
+ <div class="bar-label">Booking Lift</div>
+ </div>
+ <div class="chart-bar">
+ <div class="bar-value">38%</div>
+ <div class="bar" data-height="152"></div>
+ <div class="bar-label">Sentiment Increase</div>
+ </div>
+ <div class="chart-bar">
+ <div class="bar-value">1.4x</div>
+ <div class="bar" data-height="112"></div>
+ <div class="bar-label">Engagement Lift</div>
+ </div>
+ <div class="chart-bar">
+ <div class="bar-value">18%</div>
+ <div class="bar" data-height="144"></div>
+ <div class="bar-label">DM Check-in Rate</div>
+ </div>
+ </div>
+ </div>
+ <h3>Metrics We Track</h3>
+ <div class="three-column">
+ <div class="column">
+ <h4>Operational</h4>
+ <ul>
+ <li>Posting frequency &amp; consistency</li>
+ <li>Reach &amp; impressions by format</li>
+ <li>Engagement rate per platform</li>
+ <li>Stories completion rates</li>
+ </ul>
+ </div>
+ <div class="column">
+ <h4>Conversion</h4>
+ <ul>
+ <li>Social-attributed bookings</li>
+ <li>Booking cohort analysis</li>
+ <li>Member acquisition cost</li>
+ <li>Return booking frequency</li>
+ </ul>
+ </div>
+ <div class="column">
+ <h4>Brand Equity</h4>
+ <ul>
+ <li>Sentiment analysis (brand affinity language)</li>
+ <li>Share of voice in media</li>
+ <li>Member perception shift (survey)</li>
+ <li>Competitive positioning</li>
+ </ul>
+ </div>
+ </div>
+ <div class="divider"></div>
+ <h3>Next Year's Playbook</h3>
+ <div class="highlight-box">
+ <ol>
+ <li><strong>Expand the exclusivity tier system.</strong> Every launch is tiered: members-only → limited public → full public. This is our operating model.</li>
+ <li><strong>Scale Discord to all markets.</strong> Replicate Milan Discord in Mykonos, Ibiza, Monaco, St. Tropez. Use for high-value moments.</li>
+ <li><strong>Refine creator activation.</strong> Fewer creators, deeper relationships. Focus on chefs and restaurateurs with followings &lt;100K.</li>
+ <li><strong>Integrate cultural calendar as social engine.</strong> Members' calendar events automatically surface in strategy.</li>
+ <li><strong>Year-round Milan strategy.</strong> Develop content verticals that don't depend on seasonal moments: founder stories, design deep-dives, Italian cuisine seasons.</li>
+ </ol>
+ </div>
+ <p style="font-size: 18px; color: var(--accent); font-style: italic; margin-top: 60px;">By next summer, a member should expect that Dorsia social shows them moments before culture at large discovers them. That's the signal we've proven works.</p>
+ <button class="cta-button" onclick="alert('Ready to execute. Let\'s build this.')">Ready to Execute →</button>
+ </div>
+ </div>
+
+ <footer>
+ <p>Dorsia EU Summer Social Strategy</p>
+ <p style="font-size: 12px; color: rgba(250, 248, 246, 0.5); margin-bottom: 0;">© 2026 no9 agency. All rights reserved.</p>
+ </footer>
+
+ <script>
+ function goToPage(pageName) {
+ document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+ document.getElementById(pageName).classList.add('active');
+ document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+ document.querySelector('a[onclick="goToPage(\'' + pageName + '\')"]')?.classList.add('active');
+ window.scrollTo(0, 0);
+ if (pageName === 'reporting') setTimeout(observeCharts, 100);
+ }
+
+ const chartObserver = new IntersectionObserver((entries) => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ const bar = entry.target;
+ setTimeout(() => { bar.style.height = bar.getAttribute('data-height') + 'px'; }, 50);
+ chartObserver.unobserve(bar);
+ }
+ });
+ }, { threshold: 0.5 });
+
+ function observeCharts() {
+ document.querySelectorAll('.chart-visual .bar').forEach(bar => {
+ bar.style.height = '0';
+ chartObserver.observe(bar);
+ });
+ }
+
+ observeCharts();
+ </script>
+</body>
+</html>
