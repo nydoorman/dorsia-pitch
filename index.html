@@ -521,15 +521,33 @@
  footer p { color: rgba(250, 248, 246, 0.7); margin-bottom: 20px; }
 
  @media (max-width: 768px) {
- nav { padding: 0 40px; }
- .nav-links { gap: 25px; }
- .page { padding: 80px 40px; }
- h1 { font-size: 56px; }
- h2 { font-size: 42px; }
+ nav {
+ padding: 0 20px;
+ overflow-x: auto;
+ -webkit-overflow-scrolling: touch;
+ justify-content: flex-start;
+ gap: 20px;
+ }
+ nav::-webkit-scrollbar { display: none; }
+ .nav-links {
+ gap: 20px;
+ flex-shrink: 0;
+ }
+ .nav-links a {
+ font-size: 11px;
+ letter-spacing: 1px;
+ white-space: nowrap;
+ }
+ nav img { flex-shrink: 0; margin-right: 10px; }
+ .page { padding: 80px 24px; }
+ h1 { font-size: 48px; }
+ h2 { font-size: 36px; }
+ h3 { font-size: 26px; }
  .three-column, .metric-showcase, .stats-grid { grid-template-columns: 1fr; gap: 30px; }
  .gallery-grid { grid-template-columns: 1fr; }
  .timeline-items { grid-template-columns: 1fr; }
  .chart-visual { grid-template-columns: repeat(2, 1fr); }
+ .hero-content { padding: 60px 20px; }
  }
 
  ol { margin-left: 24px; }
