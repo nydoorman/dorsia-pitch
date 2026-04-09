@@ -88,7 +88,7 @@
  .page {
  display: none;
  min-height: 100vh;
- padding: 120px 60px;
+ padding: 0 0 120px 0;
  margin-top: 80px;
  animation: fadeIn 0.6s ease-out;
  }
@@ -100,7 +100,22 @@
  to { opacity: 1; transform: translateY(0); }
  }
 
- .page-content { max-width: 1100px; margin: 0 auto; }
+ .page-hero {
+ background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+ color: var(--cream);
+ padding: 80px 60px;
+ margin-bottom: 80px;
+ border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+ }
+
+ .page-hero h1 {
+ color: var(--cream);
+ max-width: 900px;
+ margin-bottom: 0;
+ letter-spacing: 2px;
+ }
+
+ .page-content { max-width: 1100px; margin: 0 auto; padding: 0 60px; }
 
  .hero-page {
  min-height: 100vh;
@@ -571,11 +586,14 @@
  <div class="hero-meta">EU Summer Social Strategy</div>
  <h1>Summer of Selective Presence</h1>
  <p class="hero-subtitle">A framework for operating exclusivity as both brand signal and growth engine across five European markets, anchored by controlled access, earned moments, and intentional cultural presence.</p>
- <button class="cta-button" onclick="goToPage('narrative')">Explore the Strategy →</button>
  </div>
  </div>
 
  <div id="narrative" class="page">
+ <div class="page-hero">
+ <div class="hero-meta">Part 1 — Narrative Arc</div>
+ <h1>The season doesn't announce itself. It accumulates.</h1>
+ </div>
  <div class="page-content">
  <div class="section-number">Part 1</div>
  <h2>The Summer Narrative Arc</h2>
@@ -719,6 +737,10 @@
  </div>
 
  <div id="experiment" class="page">
+ <div class="page-hero">
+ <div class="hero-meta">Part 2 — Experimentation</div>
+ <h1>One question. Eight weeks. A clear answer.</h1>
+ </div>
  <div class="page-content">
  <div class="section-number">Part 2</div>
  <h2>Exclusivity as Conversion Engine</h2>
@@ -813,6 +835,10 @@
  </div>
 
  <div id="creators" class="page">
+ <div class="page-hero">
+ <div class="hero-meta">Part 3 — Creators</div>
+ <h1>The right person in the right room needs no introduction.</h1>
+ </div>
  <div class="page-content">
  <div class="section-number">Part 3</div>
  <h2>Creator & Tastemaker Activation</h2>
@@ -912,6 +938,10 @@
  </div>
 
  <div id="reporting" class="page">
+ <div class="page-hero">
+ <div class="hero-meta">Part 4 — Reporting</div>
+ <h1>By August 31st, social either meant something or it didn't.</h1>
+ </div>
  <div class="page-content">
  <div class="section-number">Part 4</div>
  <h2>August Recap & Reporting Framework</h2>
