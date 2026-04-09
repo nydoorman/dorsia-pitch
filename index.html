@@ -493,6 +493,46 @@
  max-width: 100px;
  }
 
+ .signal-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 24px;
+ margin: 40px 0;
+ }
+
+ .signal-card {
+ background: white;
+ padding: 32px;
+ border-left: 3px solid var(--accent);
+ box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+ border-radius: 2px;
+ }
+
+ .signal-card h4 {
+ margin-bottom: 12px;
+ margin-top: 8px;
+ font-size: 20px;
+ }
+
+ .signal-card p {
+ font-size: 14px;
+ color: var(--gray);
+ margin-bottom: 0;
+ line-height: 1.7;
+ }
+
+ .signal-priority {
+ font-size: 10px;
+ text-transform: uppercase;
+ letter-spacing: 2px;
+ color: var(--accent);
+ font-weight: 600;
+ }
+
+ @media (max-width: 768px) {
+ .signal-grid { grid-template-columns: 1fr; }
+ }
+
  .stats-grid {
  display: grid;
  grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -979,37 +1019,27 @@
  </div>
  </div>
  <h3>What We're Measuring</h3>
- <p>Directional lift across four dimensions — tracked against the control group throughout the 8-week experiment window.</p>
- <div class="chart-container">
- <div class="chart-header">
- <h4>8-Week Experiment — What We're Watching</h4>
- <p>Four signals measured against the public content control group. Heights reflect relative priority, not projected numbers.</p>
+ <p>Four signals tracked against the public content control group across the 8-week window.</p>
+ <div class="signal-grid">
+ <div class="signal-card">
+ <div class="signal-priority">Primary Signal</div>
+ <h4>Booking Intent</h4>
+ <p>Did members who received exclusive access book at a higher rate than those who saw the public launch? This is the clearest line between exclusivity as a brand play and exclusivity as a conversion tool.</p>
  </div>
- <div class="chart-visual">
- <div class="chart-bar">
- <div class="bar-value">Primary</div>
- <div class="bar" data-height="200"></div>
- <div class="bar-label">Booking Intent</div>
- <div class="bar-desc">Did exclusive access move members to act?</div>
+ <div class="signal-card">
+ <div class="signal-priority">Brand Signal</div>
+ <h4>Sentiment Strength</h4>
+ <p>Are members in the exclusive cohort using stronger affinity language — talking about Dorsia as something they belong to, not something they use? Measured through comment analysis and end-of-season survey.</p>
  </div>
- <div class="chart-bar">
- <div class="bar-value">Strong</div>
- <div class="bar" data-height="160"></div>
- <div class="bar-label">Sentiment Strength</div>
- <div class="bar-desc">Are members talking about Dorsia differently?</div>
+ <div class="signal-card">
+ <div class="signal-priority">Depth Signal</div>
+ <h4>Engagement Quality</h4>
+ <p>Saves, story replies, and DM responses — not reach or likes. These are the behaviors that indicate someone is paying real attention, not scrolling past.</p>
  </div>
- <div class="chart-bar">
- <div class="bar-value">Moderate</div>
- <div class="bar" data-height="110"></div>
- <div class="bar-label">Engagement Quality</div>
- <div class="bar-desc">Saves, shares, and replies — not just views</div>
- </div>
- <div class="chart-bar">
- <div class="bar-value">Signal</div>
- <div class="bar" data-height="140"></div>
- <div class="bar-label">Close Friends CTR</div>
- <div class="bar-desc">Are members treating DMs as the first place they look?</div>
- </div>
+ <div class="signal-card">
+ <div class="signal-priority">Behavior Signal</div>
+ <h4>Close Friends Check-in Rate</h4>
+ <p>Are members consistently opening Close Friends content first? Sustained behavior over 8 weeks indicates the mechanic has created a genuine habit, not just a novelty response.</p>
  </div>
  </div>
  <h3>Metrics We Track</h3>
